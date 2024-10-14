@@ -1,2 +1,6 @@
 (library
- (name OCamlExtensibleVariantTypes))
+ (name OCamlExtensibleVariantTypes_lib)
+ (public_name OCamlExtensibleVariantTypes.lib)
+ (libraries stdlib)
+ (preprocess
+  (pps ppx_deriving.show ppx_deriving.eq)))
