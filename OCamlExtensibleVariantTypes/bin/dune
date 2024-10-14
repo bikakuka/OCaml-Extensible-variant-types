@@ -1,4 +1,4 @@
 (executable
- (public_name OCamlExtensibleVariantTypes)
  (name main)
- (libraries OCamlExtensibleVariantTypes))
+ (public_name main)
+ (libraries OCamlExtensibleVariantTypes.lib ppx_deriving.show))
