@@ -28,12 +28,12 @@ type bin_op =
 [@@deriving eq, show { with_path = false }]
 
 (* inversio *)
-type un_op = Not [@@deriving eq, show { with_path = false }] 
+type un_op = Not [@@deriving eq, show { with_path = false }]
 
 type type_annot =
   | TInt (* type integer *)
   | TBool (* type boolean *)
-  | TTuple of type_annot list (* type tuple *) 
+  | TTuple of type_annot list (* type tuple *)
   | TList of type_annot (* type list *)
   | TOption of type_annot (* type optional value *)
   | TFun of type_annot * type_annot (* type function *)
@@ -53,7 +53,8 @@ type expr =
   | UnOp of un_op * expr (* Unary operation *)
   | If of expr * expr * expr (* Conditional operator *)
   | Let of ident * expr * expr (* Binding a value to an identifier *)
-  | LetRec of ident * ident list * expr * expr (* Recursive binding a value to an identifier *)
+  | LetRec of
+      ident * ident list * expr * expr (* Recursive binding a value to an identifier *)
   | Fun of pattern * type_annot option * expr (* Anonymous function *)
   | App of expr * expr (* Function application *)
   | Tuple of expr list (* Tuple of expressions *)
