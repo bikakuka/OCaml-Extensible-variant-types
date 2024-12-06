@@ -28,19 +28,19 @@ type bin_op =
 [@@deriving eq, show { with_path = false }]
 
 (* inversio *)
-type un_op = Not [@@deriving eq, show { with_path = false }] 
+type un_op = Not | Neg [@@deriving eq, show { with_path = false }]
 
 type type_annot =
   | TInt (* type integer *)
   | TBool (* type boolean *)
-  | TTuple of type_annot list (* type tuple *) 
+  | TTuple of type_annot list (* type tuple *)
   | TList of type_annot (* type list *)
   | TOption of type_annot (* type optional value *)
   | TFun of type_annot * type_annot (* type function *)
 [@@deriving eq, show { with_path = false }]
 
 type pattern =
-  | PVar of ident (* variable pattern *)
+  | PVar of string (* variable pattern *)
   | PTuple of pattern list (** Patterns [(P1, ..., Pn)]. *)
   | PList of pattern list (** Patterns [P1, ..., Pn]. *)
   | POption of pattern option (* optional patterns *)
@@ -53,8 +53,9 @@ type expr =
   | UnOp of un_op * expr (* Unary operation *)
   | If of expr * expr * expr (* Conditional operator *)
   | Let of ident * expr * expr (* Binding a value to an identifier *)
-  | LetRec of ident * ident list * expr * expr (* Recursive binding a value to an identifier *)
-  | Fun of pattern * type_annot option * expr (* Anonymous function *)
+  | LetRec of
+      ident * ident list * expr * expr (* Recursive binding a value to an identifier *)
+  | Fun of pattern * type_annot * expr (* Anonymous function *)
   | App of expr * expr (* Function application *)
   | Tuple of expr list (* Tuple of expressions *)
   | List of expr list (* List of expressions *)

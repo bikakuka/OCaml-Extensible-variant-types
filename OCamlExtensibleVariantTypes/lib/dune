@@ -1,6 +1,10 @@
 (library
  (name OCamlExtensibleVariantTypes_lib)
  (public_name OCamlExtensibleVariantTypes.lib)
- (libraries stdlib)
+ (libraries angstrom base)
+ (modules ast parser)
  (preprocess
-  (pps ppx_deriving.show ppx_deriving.eq)))
+  (pps ppx_expect ppx_deriving.show ppx_deriving.eq))
+ (instrumentation
+  (backend bisect_ppx))
+ (inline_tests))
