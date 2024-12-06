@@ -1,0 +1,19 @@
+(env
+ (dev
+  (flags
+   (:standard -alert @deprecated -warn-error -A -w -3-9-32-34-58)))
+ (release
+  (flags
+   (:standard -alert @deprecated -warn-error +A -w +A-4-40-42-44-70))))
+(library
+ (name tests)
+ (libraries 
+  OCamlExtensibleVariantTypes.lib)
+ (modules
+  parser_tests
+  )
+ (preprocess (pps ppx_expect ppx_deriving.show ppx_deriving.eq))
+ (instrumentation
+  (backend bisect_ppx))
+ (inline_tests)
+)
