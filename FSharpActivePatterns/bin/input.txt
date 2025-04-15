@@ -1,0 +1,9 @@
+let (|Even|Odd|) v =
+  if v+2 = 0 then Even (v+10)
+  else Odd (v)
+
+let res = match 1 with
+  | Even val -> val
+  | Odd val -> val
+  in print_int res
+

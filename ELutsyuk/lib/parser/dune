@@ -1,0 +1,11 @@
+(include_subdirs qualified)
+
+(library
+ (name parser)
+ (public_name ELutsyuk.MiniML_Parser)
+ (libraries base angstrom forest)
+ (preprocess
+  (pps ppx_expect))
+ (inline_tests)
+ (instrumentation
+  (backend bisect_ppx)))

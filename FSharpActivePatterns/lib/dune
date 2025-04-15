@@ -1,9 +1,20 @@
 (library
  (name FSharpActivePatterns)
  (public_name FSharpActivePatterns)
- (modules Ast PrintAst)
- (modules_without_implementation ast)
+ (modules
+  Ast
+  Parser
+  AstPrinter
+  PrettyPrinter
+  KeywordChecker
+  Inferencer
+  TypedTree
+  TypesPp
+  Interpreter
+  ExtractIdents
+  REPLUtils)
+ (libraries angstrom base)
  (preprocess
-  (pps ppx_deriving.show ppx_deriving.eq))
+  (pps ppx_deriving_qcheck ppx_deriving.show))
  (instrumentation
   (backend bisect_ppx)))

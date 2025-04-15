@@ -1,3 +1,19 @@
 (cram
- (applies_to ast_factorial_test)
- (deps ../examples/ast_factorial/ast_factorial.exe))
+ (applies_to factorial_test)
+ (deps ../repl/REPL.exe ../examples/factorial/factorial.s))
+
+(cram
+ (applies_to qc)
+ (deps ../quickcheck/quickcheck.exe))
+
+(cram
+ (applies_to io_test)
+ (deps ../repl/REPL.exe ../examples/io/io.s))
+
+(cram
+ (applies_to bitmanip_test)
+ (deps ../repl/REPL.exe ../examples/bitmanip/bitmanip.s))
+
+(cram
+ (applies_to rvv_test)
+ (deps ../repl/REPL.exe ../examples/rvv/rvv.s))

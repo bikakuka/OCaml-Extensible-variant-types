@@ -6,9 +6,9 @@
 
 (license LGPL-3.0-or-later)
 
-(authors "Vyacheslav Kochergin vyacheslav.kochergin1@gmail.com, Roman Mukovenkov roman.mukovenkov@gmail.com")
+(authors "Vyacheslav Kochergin vyacheslav.kochergin1@gmail.com, Roman Mukovenkov roman.mukovenkov@gmail.com, Yuliana Ementyan ementyan.yuliana@gmail.com")
 
-(maintainers "Vyacheslav Kochergin vyacheslav.kochergin1@gmail.com, Roman Mukovenkov roman.mukovenkov@gmail.com")
+(maintainers "Vyacheslav Kochergin vyacheslav.kochergin1@gmail.com, Roman Mukovenkov roman.mukovenkov@gmail.com, Yuliana Ementyan ementyan.yuliana@gmail.com")
 
 (bug_reports "https://github.com/VyacheslavIurevich/fp2024")
 
@@ -18,7 +18,7 @@
  (name RISCV_ASM) ; FIXME and regenerate .opam file using 'dune build @install'
  (synopsis "An interpreter for mini-language similiar to RISC-V ASM")
  (description
-  "An interpreter for mini-language similiar to RISC-V ASM. Bitmanip and RVV supported (TODO).")
+  "An interpreter for mini-language similiar to RISC-V ASM. Bitmanip and RVV subsets supported.")
  (documentation "https://kakadu.github.io/fp2024/docs/RISC-V_ASM_interpreter")
  (version 0.1)
  (depends
@@ -27,8 +27,11 @@
   ppx_expect
   ppx_deriving
   bisect_ppx
+  qcheck-core
+  ppx_deriving_qcheck
   (odoc :with-doc)
   (ocamlformat :build)
+  containers-data
   ; base
   ; After adding dependencies to 'dune' files and the same dependecies here too
   ))
